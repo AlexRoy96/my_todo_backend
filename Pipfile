@@ -12,6 +12,7 @@ flask-heroku = "*"
 psycopg2 = "*"
 flask-sqlalchemy = "*"
 flask-marshmallow = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.8"
