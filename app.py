@@ -25,7 +25,7 @@ db = SQLAlchemy(app)
 ma = Marshmallow(app)
 
 class Todo(db.Model):
-    __tablename = "todos"
+    __tablename__ = "todos"
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
     done = db.Column(db.Boolean)
