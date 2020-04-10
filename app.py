@@ -42,6 +42,11 @@ class TodoSchema(ma.Schema):
 todo_schema = TodoSchema()
 todos_schema = TodoSchema(many=True)
 
+#get
+@app.route("/", methods=["GET"])
+def home():
+    return "<h1>Flask API for Todo App</h1>"
+
 
 if __name__ == "__main__":
     app.debug = True
