@@ -7,17 +7,18 @@ from flask_marshmallow import Marshmallow
 import os
 import psycopg2
 
-from _config import *
 
 app = Flask(__name__)
 CORS(app)
 heroku = Heroku(app)
 
-DATABASE_URL = _config.DATABASE_URL
+env = Env()
+env.read_env()
+DATABASE_URL = env("DATABASE_URL")
 
-CONN = PSYCOPG2.CONNECT(DATABASE_URL, sslmode="require")
+conn = psycopg2.connect(DATABASE_URL, sslmode="require")
 
-basedir = os.path.abspath(os.path.dirname(__file))
+basedir = os.path.abspath(os.path.dirname(__file__))
 app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
 
 db = SQLAlchemy(app)
